@@ -1,16 +1,22 @@
 package com.jac.project.service;
 
-import com.jac.project.adapter.ExcuserAdapter;
+import com.jac.project.adapter.ExcuseAdapter;
 import com.jac.project.model.Excuse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ExcuserService {
+public class ExcuseService {
     @Autowired
-    ExcuserAdapter excuserAdapter;
+    ExcuseAdapter excuseAdapter;
 
     public Excuse getRandomExcuse(){
-        return excuserAdapter.getRandomExcuse();
+        return excuseAdapter.getRandomExcuse();
     }
+
+    /*
+    public Excuse getExcuseById(Long id){
+        return excuseAdapter.
+    }
+    */
 }

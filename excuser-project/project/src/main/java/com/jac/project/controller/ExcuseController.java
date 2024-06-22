@@ -1,18 +1,18 @@
 package com.jac.project.controller;
 
 import com.jac.project.model.Excuse;
-import com.jac.project.service.ExcuserService;
+import com.jac.project.service.ExcuseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/excuse")
-public class ExcuserController {
+public class ExcuseController {
 
     @Autowired
-    ExcuserService excuserService;
+    ExcuseService excuserService;
 
     /*
     Get a random excuse
@@ -28,6 +28,13 @@ public class ExcuserController {
     Get a specific excuse having specific id
     https://excuser-three.vercel.app/v1/excuse/id/101
 
+    GetMapping("/{id}")
+    public Excuse getExcuseById(@PathVariable Long id){
+        return excuserService.
+    }
+*/
+
+    /*
     Get n random excuses
     https://excuser-three.vercel.app/v1/excuse/3
 
