@@ -1,0 +1,42 @@
+Project Name: Excuses
+
+Overview:
+The Excuses API is a Java-based project designed to generate and provide random excuses for various situations. Whether users need an excuse for being late, missing a meeting, or simply want a humorous way to get out of a situation, the Excuses API offers a diverse collection of excuses. This API can be accessed programmatically to retrieve random excuses or get excuses based on specific user inputs.
+
+Features:
+
+    Random Excuse Generation:
+        Provides a random excuse for users without any specific input.
+        Ensures a wide variety of excuses to keep responses fresh and entertaining.
+
+    Excuse Categories:
+        Generates excuses based on predefined categories such as work, personal, or general excuses.
+        Allows users to specify the type of excuse they need.
+
+    User-Specific Excuses:
+        Generates excuses based on user inputs or specific situations.
+        Customizes responses to be relevant to the user's query.
+
+    Scalability:
+        Designed to handle multiple requests efficiently.
+        Ensures quick response times for generating excuses.
+
+Technical Specifications:
+
+    Language: Java
+    Framework: Spring Boot
+    Database: Optional, for storing a vast collection of excuses (e.g., MySQL, PostgreSQL)
+    RESTful API: Provides endpoints for accessing and retrieving excuses.
+    Documentation: Comprehensive API documentation using Swagger for easy integration and usage.
+
+API Endpoints:
+
+    GET /api/excuses/random
+        Returns a random excuse.
+
+    GET /api/excuses/category/{category}
+        Returns a random excuse from the specified category.
+        Categories include work, personal, general, and more.
+
+    POST /api/excuses/custom
+        Accepts user input describing a situation and returns a tailored excuse.
