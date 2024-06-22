@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Excuser {
+public class Excuse {
     private Long id;
     private String excuse;
     private String category;
