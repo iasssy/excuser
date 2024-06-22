@@ -49,10 +49,11 @@ public class ExcuseAdapter {
     */
 
     /**
-     * Gets a specific excuse having specific id
+     * Gets the excuse with specific id
      *
-     * @param id specific ID of the excuse in external API
-     * @return  object of class Excuse representing excuse of specific id
+     * @param id specific ID of the excuse in the external API
+     * @return  the object of class Excuse representing excuse with specific id
+     * @throws ExcuseNotFoundException if the excuse with a specific id is not found
      */
     public Excuse getExcuseById(Long id){
         RestTemplate restTemplate = new RestTemplate();
@@ -65,23 +66,22 @@ public class ExcuseAdapter {
     }
 
     /*
-    Get a certain number of random excuses
+    Get a specific number of random excuses
     https://excuser-three.vercel.app/v1/excuse/{number}
     */
 
     /**
-     * Gets a certain number of random excuses
+     * Gets a specific number of random excuses
      *
      * @param number the quantity of excuses to be retrieved from API
      * @return  a list of objects of class Excuse representing a specific number of excuses,
      *          or an empty list if no excuses are returned     *
      * @throws ExcuseNotFoundException if no excuses are found for the given number
-     * @throws ExcuseServiceException  if there is an error fetching excuses
      */
     public List<Excuse> getListRandomExcuses(int number){
             RestTemplate restTemplate = new RestTemplate();
-            String apiUrlWithNumber = apiUrl + number;
-           Excuse[] excuses = restTemplate.getForObject(apiUrlWithNumber, Excuse[].class);
+            String apiUrlWithNumber = apiUrl + "/"+ number;
+            Excuse[] excuses = restTemplate.getForObject(apiUrlWithNumber, Excuse[].class);
 
             if(excuses == null || excuses.length == 0){
                 throw new ExcuseNotFoundException(number);

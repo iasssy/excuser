@@ -4,6 +4,8 @@ import com.jac.project.exception.ExcuseServiceException;
 import com.jac.project.model.Excuse;
 import com.jac.project.service.ExcuseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,17 +39,27 @@ public class ExcuseController {
     */
 
     @GetMapping("/id/{id}")
-    public Excuse getExcuseById(@PathVariable Long id){
-        return excuserService.getExcuseById(id);
+    public ResponseEntity<Excuse> getExcuseById(@PathVariable Long id){
+        try {
+            return new ResponseEntity<>(excuserService.getExcuseById(id), HttpStatus.OK);
+        }
+        catch(Exception exception){
+            return new ResponseEntity(exception.getMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
 
     /*
-    Get a certain number of random excuses
+    Get a specific number of random excuses
     https://excuser-three.vercel.app/v1/excuse/{number}
     */
     @GetMapping("/{number}")
-    public List<Excuse> getListRandomExcuses(@PathVariable int number){
-        return excuserService.getListRandomExcuses(number);
+    public ResponseEntity<List<Excuse>> getListRandomExcuses(@PathVariable int number){
+        try {
+            return new ResponseEntity<>(excuserService.getListRandomExcuses(number), HttpStatus.OK);
+        }
+        catch(Exception exception){
+            return new ResponseEntity(exception.getMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
 
 
@@ -56,8 +68,9 @@ public class ExcuseController {
 
     Get a random excuse for a specific category
     https://excuser-three.vercel.app/v1/excuse/office
+    TODO validation of category
 
-    Get n random excuses for a specific category
+    Get a specific number of random excuses for a specific category
     https://excuser-three.vercel.app/v1/excuse/college/4
      */
 
