@@ -3,6 +3,7 @@ package com.jac.project.adapter;
 import com.jac.project.exception.ExcuseNotFoundException;
 import com.jac.project.exception.ExcuseServiceException;
 import com.jac.project.model.Excuse;
+import jakarta.annotation.PostConstruct;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -21,6 +22,12 @@ public class ExcuseAdapter {
 
     @Value("${api.address}")
     private String apiUrl;
+    private String excuseUrl;
+
+    @PostConstruct
+    private void init() {
+        excuseUrl = apiUrl + "/excuse";
+    }
 
     /*
     Get a random excuse
@@ -35,7 +42,7 @@ public class ExcuseAdapter {
      */
     public Excuse getRandomExcuse(){
         RestTemplate restTemplate = new RestTemplate();
-        Excuse[] excuses = restTemplate.getForObject(apiUrl, Excuse[].class);
+        Excuse[] excuses = restTemplate.getForObject(excuseUrl, Excuse[].class);
         if (excuses != null && excuses.length > 0) {
             return excuses[0];
         } else {
@@ -57,7 +64,7 @@ public class ExcuseAdapter {
      */
     public Excuse getExcuseById(Long id){
         RestTemplate restTemplate = new RestTemplate();
-        String apiUrlId = apiUrl + "/id/" + id;
+        String apiUrlId = excuseUrl + "/id/" + id;
         Excuse excuse = restTemplate.getForObject(apiUrlId, Excuse.class);
         if(excuse == null){
             throw new ExcuseNotFoundException(id);
@@ -80,7 +87,7 @@ public class ExcuseAdapter {
      */
     public List<Excuse> getListRandomExcuses(int number){
             RestTemplate restTemplate = new RestTemplate();
-            String apiUrlWithNumber = apiUrl + "/"+ number;
+            String apiUrlWithNumber = excuseUrl + "/"+ number;
             Excuse[] excuses = restTemplate.getForObject(apiUrlWithNumber, Excuse[].class);
 
             if(excuses == null || excuses.length == 0){
