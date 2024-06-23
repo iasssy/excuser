@@ -17,7 +17,7 @@ import java.util.List;
 public class ExcuseController {
 
     @Autowired
-    ExcuseService excuserService;
+    ExcuseService excuseService;
 
     /*
     Get a random excuse
@@ -26,7 +26,7 @@ public class ExcuseController {
     @GetMapping("/")
     public Excuse getRandomExcuse(){
         try{
-            return excuserService.getRandomExcuse();
+            return excuseService.getRandomExcuse();
         } catch (Exception exception) {
             throw new ExcuseServiceException("Excuses are NOT FOUND");
             // TODO to check this exception
@@ -41,7 +41,7 @@ public class ExcuseController {
     @GetMapping("/id/{id}")
     public ResponseEntity<Excuse> getExcuseById(@PathVariable Long id){
         try {
-            return new ResponseEntity<>(excuserService.getExcuseById(id), HttpStatus.OK);
+            return new ResponseEntity<>(excuseService.getExcuseById(id), HttpStatus.OK);
         }
         catch(Exception exception){
             return new ResponseEntity(exception.getMessage(), HttpStatus.BAD_REQUEST);
@@ -55,7 +55,7 @@ public class ExcuseController {
     @GetMapping("/{number}")
     public ResponseEntity<List<Excuse>> getListRandomExcuses(@PathVariable int number){
         try {
-            return new ResponseEntity<>(excuserService.getListRandomExcuses(number), HttpStatus.OK);
+            return new ResponseEntity<>(excuseService.getListRandomExcuses(number), HttpStatus.OK);
         }
         catch(Exception exception){
             return new ResponseEntity(exception.getMessage(), HttpStatus.BAD_REQUEST);
