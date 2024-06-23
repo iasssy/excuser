@@ -14,7 +14,7 @@ public class CategoryRepository {
     private JdbcTemplate jdbcTemplate;
 
     public List<Category> getAllCategories() {
-        String sql = "SELECT category_id, category_name FROM category_tbl";
+        String sql = "SELECT category_id, category_name FROM category_tbl ORDER BY category_id ASC";
         List<Category> result = jdbcTemplate.query(sql,
                 (rs, rowNum) ->
                         new Category(rs.getLong("category_id"),
@@ -22,4 +22,12 @@ public class CategoryRepository {
         );
         return result;
     }
+
+    public Category getCategoryById(Long id){
+        String sql ="SELECT * FROM category_tbl WHERE category_id=?";
+        Category result = jdbcTemplate.queryForObject(sql, new CategoryRowMapper(), id);
+        return result;
+    }
+
+
 }
