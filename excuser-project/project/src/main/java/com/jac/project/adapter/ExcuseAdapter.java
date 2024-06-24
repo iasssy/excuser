@@ -17,18 +17,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
-@Data
 public class ExcuseAdapter {
 
     @Value("${api.address}")
     private String apiUrl;
-    private String excuseUrl;
-
-    @PostConstruct
-    private void init() {
-        excuseUrl = apiUrl + "/excuse";
-    }
-
     /*
     Get a random excuse
     https://excuser-three.vercel.app/v1/excuse
@@ -42,7 +34,7 @@ public class ExcuseAdapter {
      */
     public Excuse getRandomExcuse(){
         RestTemplate restTemplate = new RestTemplate();
-        Excuse[] excuses = restTemplate.getForObject(excuseUrl, Excuse[].class);
+        Excuse[] excuses = restTemplate.getForObject(apiUrl, Excuse[].class);
         if (excuses != null && excuses.length > 0) {
             return excuses[0];
         } else {
@@ -64,7 +56,7 @@ public class ExcuseAdapter {
      */
     public Excuse getExcuseById(Long id){
         RestTemplate restTemplate = new RestTemplate();
-        String apiUrlId = excuseUrl + "/id/" + id;
+        String apiUrlId = apiUrl + "/id/" + id;
         Excuse excuse = restTemplate.getForObject(apiUrlId, Excuse.class);
         if(excuse == null){
             throw new ExcuseNotFoundException(id);
@@ -87,7 +79,7 @@ public class ExcuseAdapter {
      */
     public List<Excuse> getListRandomExcuses(int number){
             RestTemplate restTemplate = new RestTemplate();
-            String apiUrlWithNumber = excuseUrl + "/"+ number;
+            String apiUrlWithNumber = apiUrl + "/"+ number;
             Excuse[] excuses = restTemplate.getForObject(apiUrlWithNumber, Excuse[].class);
 
             if(excuses == null || excuses.length == 0){
