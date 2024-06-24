@@ -1,7 +1,9 @@
 Project Name: Excuses
 
 Overview:
-The Excuses API is a Java-based project designed to generate and provide random excuses for various situations. Whether users need an excuse for being late, missing a meeting, or simply want a humorous way to get out of a situation, the Excuses API offers a diverse collection of excuses.
+The Excuser - application is a Java-based project. I has front end and back end, enabling user to generate and save excuses for various situations. The source of generated excuses is external API.
+The database keeps track of histiry of excuses for each user.
+Whether users need an excuse for being late, missing a meeting, or simply want a humorous way to get out of a situation, the Excuses API offers a diverse collection of excuses.
 
 
 Examples of excuses:
@@ -18,24 +20,37 @@ Random Excuse Generation:
   Provides a random excuse for users without any specific input.
 Excuse Categories:
   Generates excuses based on predefined categories such as work, personal, or general excuses.
+!!! Something about the database 
 
-
-Technical Specifications:
-
+Specifications:
     Language: Java
     Framework: Spring Boot
     Database: MySQL, for storing comments on specific excuses (if they tried this excuse and how it worked for them)
-    RESTful API: Provides endpoints for accessing and retrieving excuses.
-    Documentation: Comprehensive API documentation using Swagger for easy integration and usage.
+    External API: Retrieving excuses.
 
-API Endpoints:
+Usage of external API:
+  Get a random excuse
+  https://excuser-three.vercel.app/v1/excuse
+  
+  Get a specific excuse having specific id
+  https://excuser-three.vercel.app/v1/excuse/id/101
+  
+  Get n random excuses
+  https://excuser-three.vercel.app/v1/excuse/3
+  
+  Get a random excuse for a specific category
+  https://excuser-three.vercel.app/v1/excuse/office
+  
+  Get n random excuses for a specific category
+  https://excuser-three.vercel.app/v1/excuse/college/4
 
-    GET /api/excuses/random
-        Returns a random excuse.
-
-    GET /api/excuses/category/{category}
-        Returns a random excuse from the specified category.
-        Categories include work, personal, general, and more.
-
-    POST /api/excuses/custom
-        Accepts user input describing a situation and returns a tailored excuse.
+API Categories available:
+  Family (id range 1-10)
+  Office (id range 101-110)
+  Children (id range 201-210)
+  College (id range 301-310)
+  Party (id range 401-410)
+  Funny (id range 501-516)
+  Unbelievable (id range 601-613)
+  Developers (id range 701-715)
+  Gaming (id range 801-820)
