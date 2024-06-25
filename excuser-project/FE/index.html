@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Excuses Generator | Random and Category-Specific Excuses</title>
+    <meta name="description" content="Generator random or category-specific excuses with a simple click.">
+    <meta name="author" content="Iana Setrakova, Mehmet Yiter, Alexandre Scebba, Konstantin Khorev">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/main.css">
+  </head>
+  <body>
+
+     <!-- TODO Save and view your favorite excuses-->
+    <div class="container text-center">
+        <div class="row align-items-start">
+          <div class="col-12">
+            <div class="header-container">
+              <div class="header text-center">
+                  <h1>GET EXCUSE</h1>
+                  <h2>GENERATE EXCUSE WHENEVER YOU NEED!</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+          
+        <div class="body-container">
+          <div class="row align-items-start">
+            <div class="col-12 col-sm-5">
+            
+              <form id="main-form" class="generate-form">
+                  <!--<h3>TO WHOM IS YOUR EXCUSE?</h3>
+                  <div class="form-floating mb-3">
+                    <input type="type" class="form-control" id="username-input" name="username" placeholder="Name">
+                    <label for="name-input">Type the name of reciever</label>
+                  </div>-->
+    
+                  <h3 class="mt-2">Select category (optional)</h3>
+                  <div class="form-floating mb-4">
+                    <select class="form-select" id="excuse-target" name="excuse-target">
+                      <option value="">All categories</option>
+                      <option value="family">Family</option>
+                      <option value="office">Office</option>
+                      <option value="children">Children</option>
+                      <option value="college">College</option>
+                      <option value="party">Party</option>
+                      <option value="funny">Funny</option>
+                      <option value="unbelievable">Unbelievable</option>
+                      <option value="developers">Developers</option>
+                      <option value="gaming">Gaming</option>
+                    </select>
+                    <label for="excuse-target">Select category</label>
+                    <!-- TODO make -- label for floatingSelect to be shown only when selecting option>-->                     
+                  </div>
+    
+                  <button id="generate-excuse" type="button" class="btn btn-primary" >GENERATE</button> 
+                  
+              </form>
+          
+          </div>
+          <div class="col-12 col-sm-6 offset-sm-1">
+              <h3 class="excuse-h3">YOUR EXCUSE:</h3>
+              <div class="mb-3">
+                <textarea class="form-control" id="excuse-output" name="excuse-output" placeholder="Your excuse will appear here" id="floatingTextarea2" style="height: 100px" readonly></textarea>
+              </div>
+
+              <div class="container">
+                <div id="gif-container"></div>
+              </div>
+
+              <div class="button-group" id="button-group">
+                  <button type="button" class="btn btn-primary">SAVE</button>
+                  <button type="button" class="btn btn-primary">HISTORY</button>
+                  <button type="button" class="btn btn-primary">COMMENT</button>
+                  <button type="button" class="btn btn-primary">QUIT</button>
+              </div>
+          </div>
+        </div>
+        <footer id="developers" class="mt-3 text-center">
+          <p>©Developed by Mehmet & Iana & Alex & Konstantin</p>
+        </footer>
+        </div>   
+
+  </div>
+
+
+
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0-rc1/jquery.min.js" integrity="sha512-h2edW9FaDhqYF3XvVQo0/Ph3IDgVD0IpSTnifeLvP5FawpJCnFX7E9meeVSvMC30xazcF/YgZWsrXh6x/HJK7g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.2.1/jquery-migrate.min.js" integrity="sha512-fDGBclS3HUysEBIKooKWFDEWWORoA20n60OwY7OSYgxGEew9s7NgDaPkj7gqQcVXnASPvZAiFW8DiytstdlGtQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

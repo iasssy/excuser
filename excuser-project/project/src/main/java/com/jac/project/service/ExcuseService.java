@@ -25,4 +25,11 @@ public class ExcuseService {
         return excuseAdapter.getListRandomExcuses(number);
     }
 
+    public Excuse getExcuseByCategory(String category){
+        return excuseAdapter.getExcuseByCategory(category);
+    }
+
+    public List<Excuse> getSeveralExcusesByCategory(String category, int number) {
+        return excuseAdapter.getSeveralExcusesByCategory(category, number);
+    }
 }
