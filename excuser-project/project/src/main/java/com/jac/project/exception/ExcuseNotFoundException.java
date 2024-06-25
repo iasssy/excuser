@@ -17,4 +17,9 @@ public class ExcuseNotFoundException extends RuntimeException {
     public ExcuseNotFoundException(Long id) {
         super("Excuse with ID " + id + " is NOT FOUND");
     }
+
+    public ExcuseNotFoundException(String category) {
+        super("Excuse in category: " + category + " is NOT FOUND");
+    }
+
 }

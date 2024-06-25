@@ -81,12 +81,40 @@ public class ExcuseAdapter {
             RestTemplate restTemplate = new RestTemplate();
             String apiUrlWithNumber = apiUrl + "/"+ number;
             Excuse[] excuses = restTemplate.getForObject(apiUrlWithNumber, Excuse[].class);
-
             if(excuses == null || excuses.length == 0){
                 throw new ExcuseNotFoundException(number);
             }
-
             return Arrays.asList(excuses);
+    }
 
+    /**
+     * Get a random excuse for a specific category
+     * @param category
+     * @return
+     */
+    public Excuse getExcuseByCategory(String category) {
+        Excuse[] excuses = fetchExcusesByCategory(category, 1);
+
+        return excuses[0]; // return the first item from the Excuse array
+    }
+
+    public List<Excuse> getSeveralExcusesByCategory(String category, int number) {
+        Excuse[] excuses = fetchExcusesByCategory(category, number);
+
+        return Arrays.asList(excuses);
+    }
+
+
+    private Excuse[] fetchExcusesByCategory(String category, int number) {
+        RestTemplate restTemplate = new RestTemplate();
+        String apiUrlWithCategory = apiUrl + "/" + category + "/" + number;
+
+        ResponseEntity<Excuse[]> response = restTemplate.getForEntity(apiUrlWithCategory, Excuse[].class);
+        Excuse[] excuses = response.getBody();
+
+        if (excuses == null || excuses.length == 0) {
+            throw new ExcuseNotFoundException(category);
+        }
+        return excuses;
     }
 }
