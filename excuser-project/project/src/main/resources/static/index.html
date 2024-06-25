@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Excuses Generator | Random and Category-Specific Excuses</title>
+    <meta name="description" content="Generator random or category-specific excuses with a simple click.">
+    <meta name="author" content="Your Name">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+  <body>
+    <!-- TODO Save and view your favorite excuses-->
+      <h1 class="mt-5 text-center">Testing the code for excuser</h1>
+
+
+
+      <div class="container content">   
+      
+         <form id="main-form">      
+            
+          <p id="test" class="fs-3 m-5">Test text</p>
+          <button id="btnGetCategoryByID" class="btn btn-primary m-5">Get Category By ID</button>   
+
+          <p class="fs-3 m-5 text-center">To whom we excuse / Excuse recipient</p>
+          <div class="form-floating mb-3">
+            <input type="type" class="form-control" id="recipient-input" name="recipient" placeholder="Name">
+            <label for="recipient-input">Recipient name</label>
+          </div>
+
+
+          <p class="fs-3 m-5 text-center">For login</p>
+
+          <div class="form-floating mb-3">
+            <input type="type" class="form-control" id="username-input" name="username" placeholder="Name">
+            <small>This name/nickname will be seen by others</small>
+            <label for="name-input">Name</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="email-input" name="email" placeholder="name@example.com">
+            <label for="email-input">Email address</label>
+          </div>
+          <div class="form-floating">
+            <input type="password" class="form-control" id="password-input" name="password" placeholder="Password">
+            <label for="password-input">Password</label>
+          </div>
+        
+          <p class="fs-3 m-5 text-center">For commenting</p>
+
+          <div class="form-floating mt-5">
+            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+              <option selected>Select the category</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+            <label for="floatingSelect">Categories</label>
+            <!-- TODO make -- label for floatingSelect to be shown only when selecting option>-->
+          </div>
+
+          <div class="form-floating mt-5">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+            <label for="floatingTextarea2">Comment</label>
+          </div>
+    
+        
+         </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0-rc1/jquery.min.js" integrity="sha512-h2edW9FaDhqYF3XvVQo0/Ph3IDgVD0IpSTnifeLvP5FawpJCnFX7E9meeVSvMC30xazcF/YgZWsrXh6x/HJK7g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.2.1/jquery-migrate.min.js" integrity="sha512-fDGBclS3HUysEBIKooKWFDEWWORoA20n60OwY7OSYgxGEew9s7NgDaPkj7gqQcVXnASPvZAiFW8DiytstdlGtQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

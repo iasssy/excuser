@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5f9078a-103d-40ad-9b7c-825b14a2d360" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/excuser-project/FE/comment.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/excuser-project/FE/comment.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/excuser-project/FE/history.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/excuser-project/FE/history.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/excuser-project/FE/home.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/excuser-project/FE/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/excuser-project/FE/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/excuser-project/FE/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/excuser-project/FE/registering.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/excuser-project/FE/registering.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/excuser-project/front-end/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/excuser-project/front-end/script.js" beforeDir="false" />
-    </list>
+    <list default="true" id="d5f9078a-103d-40ad-9b7c-825b14a2d360" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,10 +35,11 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.ProjectApplication.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "yana",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/iaset/Documents/GitHub/excuser/excuser-project"
+    "last_opened_file_path": "C:/Users/iaset/Documents/GitHub/excuser/project"
   }
 }]]></component>
   <component name="RecentsManager">
