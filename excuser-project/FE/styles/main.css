@@ -137,21 +137,21 @@ body {
 }
 
 /*  History */
-#history-div{
+#content-div{
     width: 80%;
     height: 500px;
     margin-bottom: 30px;
 }
-#history-div ol li{
+#content-div ul li{
     padding: 20px 30px;
     font-size: 1.2em;
 }
 
-#history-div i.bi{
+#content-div i.bi{
     font-size: 1.4rem;
     color: #ff8c00;
 }
-#history-div span.badge{
+#content-div span.badge{
     margin: 0px 15px;
 }
 .excuse-content{
