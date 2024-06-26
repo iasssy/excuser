@@ -56,7 +56,8 @@ $(document).ready(function() {
               excuse_content: excuse_content,
               category_name: category_name
           },
-          success: function(response) {
+          success: function(response) {            
+                $('#modal-popup .modal-body p').text("Excuse saved successfully.");
                 $('#modal-popup').modal('show');
                 console.log('Excuse saved successfully with ID: ' + response);
           },
