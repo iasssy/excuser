@@ -10,15 +10,24 @@ function loadHistory() {
             let historyList = $('#history-list');
             historyList.empty();
             response.forEach(item => {
-                let listItem = `<li class="list-group-item d-flex">
-                                <div class="d-flex align-items-start">
-                                  <h5><span class="badge text-bg-warning rounded-pill">${item.category_name}</span></h5>
-                                  <div class="excuse-content text-start">${item.excuse_content}</div>
-                                </div>
-                                <div class="delete-icon ms-auto px-4 py-2" id="delete-${item.history_id}">
-                                  <i class="bi bi-trash3-fill"></i>
-                                </div>
-                                </li>`;                            
+                let listItem = `<li class="list-group-item text-start">
+                                    <div class="row">
+                                        <div class="col-sm-2 col-12">
+                                            <h5><span class="badge text-bg-warning rounded-pill">${item.category_name}</span></h5>
+                                        </div>
+                                        <div class="col-sm-7 col-12">
+                                            ${item.excuse_content}
+                                        </div>
+                                        <div class="col-sm-2 col-12 text-center mt-2">
+                                            <a type="button" class="add-comment btn btn-info btn-sm rounded" id="new-${item.history_id}">Add comment</a>
+                                        </div>
+                                        <div class="col-sm-1 col-12 text-center mt-2">
+                                            <div class="delete-icon" id="delete-${item.history_id}">
+                                                <i class="bi bi-trash3-fill"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </li>`;                            
                 historyList.append(listItem);
             });
 
@@ -29,6 +38,40 @@ function loadHistory() {
               // extract everything after "history-"
               let historyId = historyIdAttr.substring(historyIdAttr.indexOf('-') + 1);               
               deleteHistory(historyId);
+          });
+
+          $('.add-comment').on('click', function() {
+              let historyIdAttrComment = $(this).attr('id');
+              // extract everything after "new-"
+              let historyCommentId = historyIdAttrComment.substring(historyIdAttrComment.indexOf('-') + 1);  
+              
+            $('#modal-add-comment').modal('show');
+    
+            $('.save-comment').on('click', function() {
+                let commentContent = $('#comment-content').val();
+                if (!commentContent.trim()) {
+                    alert('Please enter a comment.');
+                    return;
+                }
+                let commentData = {
+                    user_id: session_user_id,  
+                    excuse_id: historyCommentId,
+                    comment_content: commentContent
+                };
+                $.ajax({
+                    method: 'post',
+                    url: `${HOST}/comments/save/`,
+                    data: JSON.stringify(commentData),
+                    success: function(response) {
+                        alert('Comment added successfully.');
+                        $('#comment-content').val('');
+                        $('#modal-add-comment').modal('hide');
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Error adding comment: ' + xhr.responseText);
+                    }
+                });
+            });
           });
         },
         error: function(xhr, status, error) {
@@ -44,7 +87,8 @@ function deleteHistory(historyId) {
       method: 'delete',
       url: `${HOST}/history/delete/`+historyId,
       success: function(response) {
-          //alert('History entry deleted successfully');
+          //console.log('History entry deleted successfully');                  
+          $('#modal-popup .modal-body p').text("History entry deleted successfully");
           $('#modal-popup').modal('show');
           // reload history after deletion
           loadHistory();
@@ -54,6 +98,37 @@ function deleteHistory(historyId) {
       }
   });
   }
+
+    
+    /*
+function createUser() {
+    const name = document.getElementById("user-name").value;
+    const password = document.getElementById("user-password").value;
+    const email = document.getElementById("user-email").value;
+    const age = document.getElementById("user-age").value;
+  
+    $.ajax({
+      method: "post",
+      url: `${HOST}/user/`,
+      data: JSON.stringify({
+        'name': name,
+        'age': age,
+        'email': email,
+        'password': password,
+      }),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    }).done((response) => {
+      alert("user created " + response);
+    });
+  }
+
+  */
+
+
+  
 
 
   loadHistory();

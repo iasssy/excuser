@@ -23,17 +23,23 @@
         </div>
           
         <div class="body-container">
+          <form>
             <div id="content-div" class="container-fluid overflow-y-auto">               
               <ul class="list-group" id="history-list">                     
-              </ul>
+              </ul>           
             </div>
 
-	    <div class="button-group" id="button-group">
-               <a href="index.html" class="btn btn-primary">HOME</a>
-               <a href="comment.html" class="btn btn-primary">COMMENTS</a>
-               <a id="btn-quit" type="button" class="btn btn-primary">QUIT</a>
-            </div>
+            <div id="new-comment-div" class="container-fluid">
+              
+            </div> 
+            </form>
 
+	      <div class="button-group" id="button-group">
+          <a href="index.html" class="btn btn-primary">HOME</a>
+          <a href="comment.html" class="btn btn-primary">COMMENTS</a>
+          <a id="btn-quit" type="button" class="btn btn-primary">QUIT</a>
+        </div>
+        
             
         <footer id="developers" class="mt-3 text-center">
             <p>© Developed by Mehmet & Iana & Alex & Konstantin</p>
@@ -54,6 +60,24 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal-add-comment" class="modal fade" tabindex="-1" aria-labelledby="modal-popup" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Add your comment</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+                <textarea class="form-control" placeholder="Leave a comment here" id="comment-content"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button id="save-comment" type="button" class="btn btn-primary">Save</button>
           </div>
         </div>
       </div>
