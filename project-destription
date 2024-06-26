@@ -72,15 +72,12 @@ Development Plan:
     Requirement Analysis:
         Define the scope and features of the API.
     Design:
-        Create API design and database schema (if needed).
+        Create API design and database schema.
     Implementation:
         Develop the API endpoints and integrate with the database.
     Testing:
         Conduct unit testing, integration testing, and load testing.
-    Deployment:
-        Deploy the API on a cloud platform or server.
-    Documentation:
-        Create detailed API documentation using Swagger.
+
 
 Conclusion:
 The Excuses API project aims to provide a fun and practical solution for generating excuses. 
