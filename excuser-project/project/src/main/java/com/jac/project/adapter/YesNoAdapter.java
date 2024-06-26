@@ -7,8 +7,6 @@ import com.jac.project.model.YesNoResponse;
 
 @Component
 public class YesNoAdapter {
-
-
     @Value("${api.yesno}")
     private String apiYesNo;
 

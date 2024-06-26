@@ -33,7 +33,9 @@ $(document).ready(function() {
             });
           },
           error: function(xhr, status, error) {
-              alert('Error loading history: ' + xhr.responseText);
+              console.log('Error loading history: ' + xhr.responseText);                      
+              $('#modal-popup .modal-body p').text("Error loading history");
+              $('#modal-popup').modal('show');
           }
     });    
   }

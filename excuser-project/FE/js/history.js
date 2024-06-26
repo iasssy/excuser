@@ -33,6 +33,7 @@ function loadHistory() {
         },
         error: function(xhr, status, error) {
             //alert('Error loading history: ' + xhr.responseText);
+            
         }
     });    
 }
@@ -43,8 +44,9 @@ function deleteHistory(historyId) {
       method: 'delete',
       url: `${HOST}/history/delete/`+historyId,
       success: function(response) {
-          alert('History entry deleted successfully');
-          // Reload history after deletion
+          //alert('History entry deleted successfully');
+          $('#modal-popup').modal('show');
+          // reload history after deletion
           loadHistory();
       },
       error: function(xhr, status, error) {

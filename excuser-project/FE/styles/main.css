@@ -126,6 +126,9 @@ body {
 }
 #button-group{
     padding-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 #developers {
     position: absolute;
