@@ -8,9 +8,10 @@
 
 body {
     font-family: 'Mukta Vaani', sans-serif;
-    background-image: url('laugh.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-image: url('../images/emoji-2.png');    
+    background-color: rgba(255,255,255,0.6);
+    background-blend-mode: lighten;
+    background-repeat: repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -102,11 +103,26 @@ body {
 }
 
 #gif-container img{
-    margin-top: 20px;
     width: 100%;
     max-width: 400px;
     height: auto;
-    margin-bottom: 20px;
+}
+
+#gif-container{
+    margin-top: 20px;
+    width: 100%;
+    min-height: 225px;
+    margin-bottom: 30px;
+    transition: all 0.5s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+    display: block;
+    margin: auto;
 }
 #button-group{
     margin-bottom: 50px;

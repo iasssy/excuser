@@ -37,7 +37,7 @@
     
                   <h3 class="mt-2">Select category (optional)</h3>
                   <div class="form-floating mb-4">
-                    <select class="form-select" id="excuse-target" name="excuse-target">
+                    <select class="form-select" id="excuse-select" name="excuse-select">
                       <option value="">All categories</option>
                       <option value="family">Family</option>
                       <option value="office">Office</option>
@@ -65,14 +65,16 @@
               </div>
 
               <div class="container">
-                <div id="gif-container"></div>
+                <div id="gif-container">
+                  <img src="images/emojis.png" class="img-fluid" alt="Excuse GIF" />
+                </div>
               </div>
 
               <div class="button-group" id="button-group">
-                  <button type="button" class="btn btn-primary">SAVE</button>
-                  <button type="button" class="btn btn-primary">HISTORY</button>
-                  <button type="button" class="btn btn-primary">COMMENT</button>
-                  <button type="button" class="btn btn-primary">QUIT</button>
+                  <button id="btn-save" type="button" class="btn btn-primary">SAVE</button>
+                  <button id="btn-history" type="button" class="btn btn-primary">HISTORY</button>
+                  <button id="btn-comment" type="button" class="btn btn-primary">COMMENT</button>
+                  <button id="btn-quit" type="button" class="btn btn-primary">QUIT</button>
               </div>
           </div>
         </div>
