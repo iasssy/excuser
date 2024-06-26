@@ -141,9 +141,12 @@ body {
 
 /*  History */
 #content-div{
-    width: 80%;
+    width: 90%;
     height: 500px;
     margin-bottom: 30px;
+}
+#new-comment-div{    
+    width: 80%;
 }
 #content-div ul li{
     padding: 20px 30px;

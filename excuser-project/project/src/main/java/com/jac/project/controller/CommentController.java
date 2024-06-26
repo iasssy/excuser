@@ -23,7 +23,7 @@ public class CommentController {
         return service.getAllComments();
     }
 
-    @PostMapping("/")
+    @PostMapping("/save/")
     public ResponseEntity<Long> saveComment(@RequestBody Comment comment){
         try{
             return new ResponseEntity(service.saveComment(comment), HttpStatus.CREATED);

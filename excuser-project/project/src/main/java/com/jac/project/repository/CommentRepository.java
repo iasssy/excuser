@@ -27,12 +27,11 @@ public class CommentRepository {
     }
 
     public Long saveComment(Comment comment){
-        String sql = "INSERT INTO comment_tbl  (user_id, excuse_id, excuse_content, category_name, comment_content) VALUES  (?, ?, ?, ?, ?)";
-        jdbcTemplate.update(sql, session_user_id, comment.getExcuse_id(), comment.getExcuse_content(), comment.getCategory_name(),
-                comment.getComment_content());
+        String sql = "INSERT INTO comment_tbl  (user_id, history_id, comment_content) VALUES  (?, ?, ?)";
+        jdbcTemplate.update(sql, session_user_id, comment.getHistory_id(), comment.getComment_content());
 
         //to see the id of saved comment
-        return jdbcTemplate.queryForObject("SELECT MAX(id) from comment_tbl", Long.class);
+        return jdbcTemplate.queryForObject("SELECT MAX(comment_id) from comment_tbl", Long.class);
     }
 
 }

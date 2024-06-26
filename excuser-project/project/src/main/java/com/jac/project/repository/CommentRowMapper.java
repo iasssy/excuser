@@ -17,9 +17,7 @@ public class CommentRowMapper implements RowMapper<Comment> {
             Comment comment = new Comment();
             comment.setComment_id(rs.getLong("comment_id"));
             comment.setUser_id(rs.getLong("user_id"));
-            comment.setExcuse_id(rs.getLong("excuse_id"));
-            comment.setExcuse_content(rs.getString("excuse_content"));
-            comment.setCategory_name(rs.getString("category_name"));
+            comment.setHistory_id(rs.getLong("history_id"));
             comment.setComment_content(rs.getString("comment_content"));
 
             String dateTimeString = rs.getString("saved_at");
