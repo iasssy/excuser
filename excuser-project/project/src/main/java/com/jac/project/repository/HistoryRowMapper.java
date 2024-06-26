@@ -20,8 +20,10 @@ public class HistoryRowMapper implements RowMapper<History> {
         history.setHistory_id(rs.getLong("history_id"));
         history.setUser_id(rs.getLong("user_id"));
         history.setExcuse_id(rs.getLong("excuse_id"));
+        history.setExcuse_content(rs.getString("excuse_content"));
+        history.setCategory_name(rs.getString("category_name"));
 
-        String dateTimeString = rs.getString("saved_at"); // Replace with your actual timestamp column name
+        String dateTimeString = rs.getString("saved_at");
         history.setSaved_at(LocalDateTime.parse(dateTimeString, DATE_TIME_FORMATTER));
 
         return history;

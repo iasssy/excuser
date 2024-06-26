@@ -24,10 +24,15 @@ public class HistoryRepository {
         return result;
     }
 
-    public Long saveHistory(Long session_user_id, Long excuse_id){
-        String sql = "INSERT INTO history_tbl (user_id, excuse_id) VALUES (?, ?);";
-        jdbcTemplate.update(sql, session_user_id, excuse_id);
+    public Long saveHistory(Long session_user_id, Long excuse_id, String excuse_content, String category_name){
+        String sql = "INSERT INTO history_tbl (user_id, excuse_id, excuse_content, category_name) VALUES (?, ?, ?, ?);";
+        jdbcTemplate.update(sql, session_user_id, excuse_id, excuse_content, category_name);
         return jdbcTemplate.queryForObject("SELECT MAX(history_id) from history_tbl", Long.class);
+    }
+
+    public void deleteHistoryWithId(Long history_id){
+        String sql="DELETE FROM history_tbl WHERE history_id=?";
+        jdbcTemplate.update(sql, history_id);
     }
 
 }
