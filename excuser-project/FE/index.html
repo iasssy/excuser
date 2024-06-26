@@ -11,7 +11,6 @@
   </head>
   <body>
 
-     <!-- TODO Save and view your favorite excuses-->
     <div class="container text-center">
         <div class="row align-items-start">
           <div class="col-12">
@@ -28,31 +27,23 @@
           <div class="row align-items-start">
             <div class="col-12 col-sm-5">
             
-              <form id="main-form" class="generate-form">
-                  <!--<h3>TO WHOM IS YOUR EXCUSE?</h3>
-                  <div class="form-floating mb-3">
-                    <input type="type" class="form-control" id="username-input" name="username" placeholder="Name">
-                    <label for="name-input">Type the name of reciever</label>
-                  </div>-->
-    
+              <form id="main-form" class="generate-form">    
                   <h3 class="mt-2">Select category (optional)</h3>
-                  <div class="form-floating mb-4">
-                    <select class="form-select" id="excuse-target" name="excuse-target">
-                      <option value="">All categories</option>
-                      <option value="family">Family</option>
-                      <option value="office">Office</option>
-                      <option value="children">Children</option>
-                      <option value="college">College</option>
-                      <option value="party">Party</option>
-                      <option value="funny">Funny</option>
-                      <option value="unbelievable">Unbelievable</option>
-                      <option value="developers">Developers</option>
-                      <option value="gaming">Gaming</option>
-                    </select>
-                    <label for="excuse-target">Select category</label>
-                    <!-- TODO make -- label for floatingSelect to be shown only when selecting option>-->                     
+		              <div class="form-floating mb-4">
+                    <select class="form-select" id="excuse-select" name="excuse-select">
+                        <option value="">All categories</option>
+                              <option value="family">Family</option>
+                              <option value="office">Office</option>
+                              <option value="children">Children</option>
+                              <option value="college">College</option>
+                              <option value="party">Party</option>
+                              <option value="funny">Funny</option>
+                              <option value="unbelievable">Unbelievable</option>
+                              <option value="developers">Developers</option>
+                              <option value="gaming">Gaming</option>
+                      </select>
+                      <label for="excuse-select">Select category</label>
                   </div>
-    
                   <button id="generate-excuse" type="button" class="btn btn-primary" >GENERATE</button> 
                   
               </form>
@@ -61,25 +52,44 @@
           <div class="col-12 col-sm-6 offset-sm-1">
               <h3 class="excuse-h3">YOUR EXCUSE:</h3>
               <div class="mb-3">
-                <textarea class="form-control" id="excuse-output" name="excuse-output" placeholder="Your excuse will appear here" id="floatingTextarea2" style="height: 100px" readonly></textarea>
+                <textarea class="form-control" id="excuse-output" name="excuse-output" placeholder="Your excuse will appear here" style="height: 100px" readonly></textarea>
               </div>
 
               <div class="container">
-                <div id="gif-container"></div>
+                <div id="gif-container">
+                  <img src="images/emojis.png" class="img-fluid" alt="Excuse GIF" />
+                </div>
               </div>
 
               <div class="button-group" id="button-group">
-                  <button type="button" class="btn btn-primary">SAVE</button>
-                  <button type="button" class="btn btn-primary">HISTORY</button>
-                  <button type="button" class="btn btn-primary">COMMENT</button>
-                  <button type="button" class="btn btn-primary">QUIT</button>
+                  <button id="btn-save" type="button" class="btn btn-primary">SAVE</button>
+                  <a href="history.html" class="btn btn-primary">HISTORY</a>
+                  <a href="comment.html" class="btn btn-primary">COMMENTS</a>
+                  <button id="btn-quit" type="button" class="btn btn-primary">QUIT</button>
               </div>
           </div>
         </div>
         <footer id="developers" class="mt-3 text-center">
-          <p>©Developed by Mehmet & Iana & Alex & Konstantin</p>
+          <p>© Developed by Mehmet & Iana & Alex & Konstantin</p>
         </footer>
         </div>   
+        
+        <div id="modal-popup" class="modal fade" tabindex="-1" aria-labelledby="modal-popup" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>The excuse saved successfully.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
   </div>
 
