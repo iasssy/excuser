@@ -5,10 +5,12 @@ import com.jac.project.service.HistoryService;
 import org.springframework.stereotype.Component;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 
 @Component
+@CrossOrigin
 public class HistoryRepository {
 
     @Autowired
@@ -24,8 +26,8 @@ public class HistoryRepository {
 
     public Long saveHistory(Long session_user_id, Long excuse_id){
         String sql = "INSERT INTO history_tbl (user_id, excuse_id) VALUES (?, ?);";
-        var result = jdbcTemplate.update(sql, new HistoryRowMapper(), session_user_id, excuse_id);
-        return jdbcTemplate.queryForObject("SELECT MAX(id) from history_tbl", Long.class);
+        jdbcTemplate.update(sql, session_user_id, excuse_id);
+        return jdbcTemplate.queryForObject("SELECT MAX(history_id) from history_tbl", Long.class);
     }
 
 }
