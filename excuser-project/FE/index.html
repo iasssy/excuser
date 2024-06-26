@@ -27,27 +27,21 @@
           <div class="row align-items-start">
             <div class="col-12 col-sm-5">
             
-              <form id="main-form" class="generate-form">
-                  <!--<h3>TO WHOM IS YOUR EXCUSE?</h3>
-                  <div class="form-floating mb-3">
-                    <input type="type" class="form-control" id="username-input" name="username" placeholder="Name">
-                    <label for="name-input">Type the name of reciever</label>
-                  </div>-->
-    
+              <form id="main-form" class="generate-form">    
                   <h3 class="mt-2">Select category (optional)</h3>
-		  <div class="form-floating mb-4">
-    		     <select class="form-select" id="excuse-select" name="excuse-select">
-        	      <option value="">All categories</option>
-                      <option value="family">Family</option>
-                      <option value="office">Office</option>
-                      <option value="children">Children</option>
-                      <option value="college">College</option>
-                      <option value="party">Party</option>
-                      <option value="funny">Funny</option>
-                      <option value="unbelievable">Unbelievable</option>
-                      <option value="developers">Developers</option>
-                      <option value="gaming">Gaming</option>
-    		      </select>
+		              <div class="form-floating mb-4">
+                    <select class="form-select" id="excuse-select" name="excuse-select">
+                        <option value="">All categories</option>
+                              <option value="family">Family</option>
+                              <option value="office">Office</option>
+                              <option value="children">Children</option>
+                              <option value="college">College</option>
+                              <option value="party">Party</option>
+                              <option value="funny">Funny</option>
+                              <option value="unbelievable">Unbelievable</option>
+                              <option value="developers">Developers</option>
+                              <option value="gaming">Gaming</option>
+                      </select>
                       <label for="excuse-select">Select category</label>
                   </div>
                   <button id="generate-excuse" type="button" class="btn btn-primary" >GENERATE</button> 
@@ -79,6 +73,23 @@
           <p>© Developed by Mehmet & Iana & Alex & Konstantin</p>
         </footer>
         </div>   
+        
+        <div id="modal-popup" class="modal fade" tabindex="-1" aria-labelledby="modal-popup" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>The excuse saved successfully.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
   </div>
 
