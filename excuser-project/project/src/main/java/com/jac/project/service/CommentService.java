@@ -29,5 +29,8 @@ public class CommentService {
         repository.deleteCommentById(comment_id);
     }
 
+    public void updateComment(Long comment_id, String comment_content) {
+        repository.updateComment(comment_id, comment_content);
+    }
 
 }

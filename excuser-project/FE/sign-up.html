@@ -3,51 +3,58 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>History of excuses Generator</title>
-    <meta name="description" content="Showing the history of excuses">
+    <title>Sign up for excuses Generator</title>
+    <meta name="description" content="Sign up for excuses Generator">
     <meta name="author" content="Iana Setrakova, Mehmet Yiter, Alexandre Scebba, Konstantin Khorev">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/main.css">
   </head>
   <body>
-    <div class="container text-center">
+    <div class="container-log-in text-center">
         <div class="row align-items-start">
           <div class="col-12">
             <div class="header-container">
               <div class="header text-center">
                   <h1>GET EXCUSE</h1>
-                  <h2 class="text-uppercase">History of the recent excuses</h2>
+                  <h2 class="text-uppercase">Latest comments on Excuses</h2>
               </div>
             </div>
           </div>
         </div>
           
-        <div class="body-container">
-          <form>
-            <div id="content-div" class="container-fluid overflow-y-auto">               
-              <ul class="list-group" id="history-list">                     
-              </ul>           
+        <div class="body-container p-3 pt-5">
+          <form id="sign-up-form">
+            <p>Please fill out all the fields:</p>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="username-input" name="username" placeholder="Name">
+              <!--<small>This name/nickname will be seen by others</small>-->
+              <label for="username-input">Name</label>
             </div>
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="email-input" name="email" placeholder="name@example.com">
+              <label for="email-input">Email address</label>
+            </div>
+            <div class="form-floating">
+              <input type="password" class="form-control" id="password-input" name="password" placeholder="Password">
+              <label for="password-input">Password</label>
+            </div>
+            <button type="submit" class="btn btn-primary mt-4">SIGN UP</button>
+            <p class="mt-5">Already have an account? Log in here:</p>
+            <a href="log-in.html" class="btn btn-primary mt-1">LOG IN</a>
+            <br>            
+            <a href="index.html" class="btn btn-primary mt-4 mb-5">HOME</a>
 
-            <div id="new-comment-div" class="container-fluid">
-              
-            </div> 
-            </form>
+          </form>      
+            
+            
 
-	      <div class="button-group" id="button-group-history">
-          <a href="index.html" class="btn btn-primary">HOME</a>
-          <a href="comment.html" class="btn btn-primary">COMMENTS</a>
-          <a id="btn-quit" class="btn btn-primary">QUIT</a>
-        </div>
-        
             
         <footer id="developers" class="mt-3 text-center">
             <p>© Developed by Mehmet & Iana & Alex & Konstantin</p>
           </footer>       
         </div>
-    </div>    
+    </div>   
 
-    
     <div id="modal-popup" class="modal fade" tabindex="-1" aria-labelledby="modal-popup" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -56,28 +63,9 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <p>The excused deleted successfully.</p>
+            <p></p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="modal-add-comment" class="modal fade" tabindex="-1" aria-labelledby="modal-popup" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Add your comment</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-              <p></p>
-              <textarea class="form-control" placeholder="Leave a comment here" id="comment-content"></textarea>
-          </div>
-          <div class="modal-footer">
-            <button id="save-comment" type="button" class="btn btn-primary">Save</button>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
@@ -88,6 +76,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.2.1/jquery-migrate.min.js" integrity="sha512-fDGBclS3HUysEBIKooKWFDEWWORoA20n60OwY7OSYgxGEew9s7NgDaPkj7gqQcVXnASPvZAiFW8DiytstdlGtQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
-    <script src="js/history.js"></script>
+    <script src="js/sign-up.js"></script>
   </body>
 </html>

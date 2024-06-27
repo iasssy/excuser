@@ -1,6 +1,8 @@
 package com.jac.project.repository;
 
+import com.jac.project.controller.SessionController;
 import com.jac.project.model.History;
+import com.jac.project.model.SessionData;
 import com.jac.project.service.HistoryService;
 import org.springframework.stereotype.Component;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +18,16 @@ public class HistoryRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+    @Autowired
+    private SessionData sessionData;
+
     final Long session_user_id = 1L;
 
     public List<History> getAllHistory() {
+       /* Long userId = sessionData.getSessionUserId();
+        if (userId == null) {
+            throw new IllegalStateException("Session user ID not found.");
+        }*/
         String sql = "SELECT * FROM history_tbl WHERE user_id=? ORDER BY saved_at DESC";
         List<History> result = jdbcTemplate.query(sql, new HistoryRowMapper(), session_user_id);
         return result;

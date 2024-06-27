@@ -1,5 +1,11 @@
+
+let historyList = $('#history-list');
+
 $(document).ready(function() {
 function loadHistory() {
+     if (session_user_id == null) {
+        historyList.append('<h3 class="mt-5">Please log in</h3>');
+     } else {
     $.ajax({
         method: 'get',
         url: `${HOST}/history/`,
@@ -7,7 +13,6 @@ function loadHistory() {
             user_id: session_user_id
         },
         success: function(response) {
-            let historyList = $('#history-list');
             historyList.empty();
             response.forEach(item => {
                 let listItem = `<li class="list-group-item text-start">
@@ -92,6 +97,7 @@ function loadHistory() {
             //alert('Error loading history: ' + xhr.responseText);            
         }
     });    
+    }
 }
 
 // Function to delete history entry

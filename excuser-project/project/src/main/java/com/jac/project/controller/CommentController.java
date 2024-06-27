@@ -2,7 +2,6 @@ package com.jac.project.controller;
 
 
 import com.jac.project.model.Comment;
-import com.jac.project.model.History;
 import com.jac.project.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -52,4 +51,15 @@ public class CommentController {
             return new ResponseEntity(exception.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
+
+    @PutMapping("/update/{comment_id}")
+    public ResponseEntity<Void> updateComment(@PathVariable Long comment_id, @RequestParam String comment_content){
+        try {
+            service.updateComment(comment_id, comment_content);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (Exception exception) {
+            return new ResponseEntity(exception.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
+
 }

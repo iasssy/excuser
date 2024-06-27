@@ -3,9 +3,12 @@ const HOST = "http://localhost:8080";
 let excuse_id;
 let excuse_content;
 let category_name;
-const session_user_id = 1; 
+let session_user_id = sessionStorage.getItem('session_user_id');
 
+console.log("session_user_id: " + session_user_id);
 $(document).ready(function() {
+    updateLoginState(); // checking if there is session_user_id
+
     $('#generate-excuse').on('click', function(event) {
         event.preventDefault();
         let category = $('#excuse-select').val();
@@ -41,12 +44,17 @@ $(document).ready(function() {
 
 
     $('#btn-save').on('click', function() {
-      if (!excuse_id) {
-          //alert('Please generate an excuse first!');
-          $('#modal-popup .modal-body p').text("Please generate an excuse at first!");
+      if (session_user_id == null){
+          $('#modal-popup .modal-body p').text("Please log in!");
           $('#modal-popup').modal('show');
-          return;
-      }
+        
+      } else {
+        if (!excuse_id) {
+            //alert('Please generate an excuse first!');
+            $('#modal-popup .modal-body p').text("Please generate an excuse at first!");
+            $('#modal-popup').modal('show');
+            return;
+        }
       $.ajax({
           method: 'post',
           url: `${HOST}/history/save`,
@@ -65,6 +73,58 @@ $(document).ready(function() {
               alert('Error saving excuse: ' + xhr.responseText);
           }
       });
+    }
   });
+
+   // Function to update button "Log in" or "Quit" based on session_user_id
+   function updateLoginState() {
+    session_user_id = sessionStorage.getItem('session_user_id');
+    let buttonGroup = $('#button-group');
+    buttonGroup.empty(); // Clear existing buttons
+     //  append other buttons
+     buttonGroup.append(`
+        <a id="btn-save" href="#" class="btn btn-primary">SAVE</a>
+        <a id="btn-history" href="#" class="btn btn-primary">HISTORY</a>
+        <a id="btn-comments" href="#" class="btn btn-primary">COMMENTS</a>`
+      );
+
+    if (session_user_id == null) {
+        // append Log in button
+        buttonGroup.append(`<a id="btn-login" href="log-in.html" class="btn btn-primary">LOG IN</a>`);
+    } else {
+        buttonGroup.append(`<a id="btn-quit" href="#" class="btn btn-primary">QUIT</a>`);
+        // handle quit button click
+       
+    }
+}
+
+ $('#btn-quit').on('click', function(event) {
+    event.preventDefault();
+    // Clear session_user_id
+    sessionStorage.removeItem('session_user_id');
+    updateLoginState(); // Update UI
+    window.location.href = 'index.html'; // Redirect to index or desired page
+  });
+
+  
+ $('#btn-history').on('click', function(event) {      
+  event.preventDefault();
+  if (session_user_id == null) {
+    $('#modal-popup .modal-body p').text("Please log in!");
+    $('#modal-popup').modal('show');
+  } else {
+    window.location.href = 'history.html';
+  }
+ }); 
+
+ $('#btn-comments').on('click', function(event) {      
+  event.preventDefault();
+  if (session_user_id == null) {
+    $('#modal-popup .modal-body p').text("Please log in!");
+    $('#modal-popup').modal('show');
+  } else {
+    window.location.href = 'comment.html';
+  }
+ });
 
 });
