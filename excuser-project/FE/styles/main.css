@@ -8,10 +8,13 @@
 
 body {
     font-family: 'Kodchasan', sans-serif;
-    background-image: url('../images/emoji-2.png');    
-    background-color: rgba(255,255,255,0.6);
+    /*background-image: url('../images/emoji-2.png');  
+    background-repeat: repeat;*/
+    background-image: url('../images/laugh.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(255,255,255,0.5);
     background-blend-mode: lighten;
-    background-repeat: repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -137,27 +140,38 @@ body {
 }
 
 /*  History */
-#history-div{
+#content-div{
     width: 80%;
     height: 500px;
     margin-bottom: 30px;
 }
-#history-div ol li{
+#content-div ol li{
     padding: 20px 30px;
     font-size: 1.2em;
 }
 
-#history-div i.bi{
+#content-div i.bi{
     font-size: 1.4rem;
     color: #ff8c00;
 }
-#history-div span.badge{
+#content-div span.badge{
     margin: 0px 15px;
 }
 .excuse-content{
     padding: 0 20px;;
 }
-
+.delete-icon{
+    cursor: pointer;
+}
+#modal-add-comment .modal-body p{
+    color: #ff8c00;
+    font-weight: 700;
+}
+.comment-background{
+    background-color: #f9dfb1;
+    font-size: 18px;
+    border-radius: 10px;
+}
 @media (max-width: 575.98px) {
     .main-container {
         width: 100%;
