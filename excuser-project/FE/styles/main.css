@@ -126,9 +126,6 @@ body {
 }
 #button-group{
     padding-bottom: 50px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
 }
 #developers {
     position: absolute;
@@ -140,24 +137,21 @@ body {
 }
 
 /*  History */
-#content-div{
-    width: 90%;
+#history-div{
+    width: 80%;
     height: 500px;
     margin-bottom: 30px;
 }
-#new-comment-div{    
-    width: 80%;
-}
-#content-div ul li{
+#history-div ol li{
     padding: 20px 30px;
     font-size: 1.2em;
 }
 
-#content-div i.bi{
+#history-div i.bi{
     font-size: 1.4rem;
     color: #ff8c00;
 }
-#content-div span.badge{
+#history-div span.badge{
     margin: 0px 15px;
 }
 .excuse-content{
