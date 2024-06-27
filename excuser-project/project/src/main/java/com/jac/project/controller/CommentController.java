@@ -30,6 +30,5 @@ public class CommentController {
         } catch (Exception exception){
             return new ResponseEntity(exception.getMessage(), HttpStatus.BAD_REQUEST);
         }
-
     }
 }

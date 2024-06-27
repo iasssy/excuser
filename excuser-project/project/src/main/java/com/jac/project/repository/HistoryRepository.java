@@ -24,6 +24,12 @@ public class HistoryRepository {
         return result;
     }
 
+    public History getHistoryById(Long history_id) {
+        String sql = "SELECT * FROM history_tbl WHERE history_id=?";
+        History result = jdbcTemplate.queryForObject(sql, new HistoryRowMapper(), history_id);
+        return result;
+    }
+
     public Long saveHistory(Long session_user_id, Long excuse_id, String excuse_content, String category_name){
         String sql = "INSERT INTO history_tbl (user_id, excuse_id, excuse_content, category_name) VALUES (?, ?, ?, ?);";
         jdbcTemplate.update(sql, session_user_id, excuse_id, excuse_content, category_name);

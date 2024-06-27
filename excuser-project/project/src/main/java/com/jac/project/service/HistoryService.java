@@ -18,6 +18,10 @@ public class HistoryService {
     public List<History> getAllHistory(){
         return repository.getAllHistory();
     }
+    public History getHistoryById(Long history_id){
+        return repository.getHistoryById(history_id);
+    }
+
     public Long saveHistory(Long session_user_id, Long excuse_id, String excuse_content, String category_name){
         return repository.saveHistory(session_user_id, excuse_id, excuse_content, category_name);
     }

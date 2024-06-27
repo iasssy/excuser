@@ -44,23 +44,27 @@ function loadHistory() {
               let historyIdAttrComment = $(this).attr('id');
               // extract everything after "new-"
               let historyCommentId = historyIdAttrComment.substring(historyIdAttrComment.indexOf('-') + 1);  
-              
+              console.log("history_id " + historyCommentId);
             $('#modal-add-comment').modal('show');
-    
-            $('.save-comment').on('click', function() {
+
+            $('#save-comment').on('click', function() {
                 let commentContent = $('#comment-content').val();
                 if (!commentContent.trim()) {
-                    alert('Please enter a comment.');
+                    // Add red border to textarea
+                    $('#comment-content').addClass('border border-danger');
+                    // Focus on textarea
+                    $('#comment-content').focus();
                     return;
                 }
                 let commentData = {
                     user_id: session_user_id,  
-                    excuse_id: historyCommentId,
+                    history_id: historyCommentId,
                     comment_content: commentContent
                 };
                 $.ajax({
                     method: 'post',
                     url: `${HOST}/comments/save/`,
+                    contentType: 'application/json',
                     data: JSON.stringify(commentData),
                     success: function(response) {
                         alert('Comment added successfully.');
@@ -68,9 +72,16 @@ function loadHistory() {
                         $('#modal-add-comment').modal('hide');
                     },
                     error: function(xhr, status, error) {
-                        alert('Error adding comment: ' + xhr.responseText);
+                        console.log('Error adding comment: ' + xhr.responseText);
                     }
                 });
+            });
+
+            // Remove red border from textarea when user starts typing
+            $('#comment-content').on('input', function() {
+                if ($(this).val().trim()) {
+                    $(this).removeClass('border border-danger');
+                }
             });
           });
         },
