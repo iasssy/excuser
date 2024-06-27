@@ -6,6 +6,29 @@ $(document).ready(function() {
         user_email = $('#email-input').val();
         user_password = $('#password-input').val();
 
+        // Client-side validation
+        if (!user_name || !user_email || !user_password) {
+            //alert('All fields are required.');       
+            $('#modal-popup .modal-body p').text("All fields are required.");
+            $('#modal-popup').modal('show');
+            return;
+        }
+
+        if (!validateEmail(user_email)) {
+            //alert('Invalid email format.');      
+            $('#modal-popup .modal-body p').text("Invalid email format.");
+            $('#modal-popup').modal('show');
+            return;
+        }
+
+        if (user_password.length < 6) {
+            //alert('Password must be at least 6 characters long.');     
+            $('#modal-popup .modal-body p').text("Password must be at least 6 characters long.");
+            $('#modal-popup').modal('show');
+            return;
+        }
+
+
         $.ajax({
             method: 'post',
             url: `${HOST}/user/save`,
@@ -30,4 +53,10 @@ $(document).ready(function() {
             }
         });
     });
+
+    // Function to validate email format
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
 });

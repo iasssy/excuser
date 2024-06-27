@@ -35,7 +35,8 @@ public class UserController {
             if (result != null) {
                 return new ResponseEntity<>(result, HttpStatus.OK);
             } else {
-                return new ResponseEntity<>(result, HttpStatus.UNAUTHORIZED);
+                // 401, if login fails
+                return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
             }
         } catch (Exception exception) {
             return new ResponseEntity(exception.getMessage(), HttpStatus.BAD_REQUEST);

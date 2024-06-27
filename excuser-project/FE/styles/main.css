@@ -154,7 +154,14 @@ body {
 
 #content-div i.bi{
     font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.bi.bi-trash3-fill{
     color: #ff8c00;
+}
+.bi.bi-pencil-fill{
+    color: #147c34;
 }
 #content-div span.badge{
     margin: 0px 15px;
@@ -165,7 +172,7 @@ body {
 .delete-icon{
     cursor: pointer;
 }
-#modal-add-comment .modal-body p{
+#modal-add-comment .modal-body p, #modal-update-comment p{
     color: #ff8c00;
     font-weight: 700;
 }

@@ -80,30 +80,50 @@ $(document).ready(function() {
     session_user_id = sessionStorage.getItem('session_user_id');
     let buttonGroup = $('#button-group');
     buttonGroup.empty(); // Clear existing buttons
-     // Always append other buttons
+     //  append other buttons
      buttonGroup.append(`
-        <a id="btn-save" type="button" class="btn btn-primary">SAVE</a>
-        <a href="history.html" class="btn btn-primary">HISTORY</a>
-        <a href="comment.html" class="btn btn-primary">COMMENTS</a>`
+        <a id="btn-save" class="btn btn-primary">SAVE</a>
+        <a id="btn-history" class="btn btn-primary">HISTORY</a>
+        <a id="btn-comments" class="btn btn-primary">COMMENTS</a>`
       );
 
     if (session_user_id == null) {
-        // Append Log in button
+        // append Log in button
         buttonGroup.append(`<a id="btn-login" href="log-in.html" class="btn btn-primary">LOG IN</a>`);
     } else {
-        // Append Quit button
         buttonGroup.append(`<a id="btn-quit" href="#" class="btn btn-primary">QUIT</a>`);
-
-        // Handle quit button click
-        $('#btn-quit').on('click', function(event) {
-            event.preventDefault();
-            // Clear session_user_id
-            sessionStorage.removeItem('session_user_id');
-            updateLoginState(); // Update UI
-            window.location.href = 'index.html'; // Redirect to index or desired page
-        });
+        // handle quit button click
+       
     }
 }
 
+ $('#btn-quit').on('click', function(event) {
+    event.preventDefault();
+    // Clear session_user_id
+    sessionStorage.removeItem('session_user_id');
+    updateLoginState(); // Update UI
+    window.location.href = 'index.html'; // Redirect to index or desired page
+  });
+
+  
+ $('#btn-history').on('click', function(event) {      
+  event.preventDefault();
+  if (session_user_id == null) {
+    $('#modal-popup .modal-body p').text("Please log in!");
+    $('#modal-popup').modal('show');
+  } else {
+    window.location.href = 'history.html';
+  }
+ }); 
+
+ $('#btn-comments').on('click', function(event) {      
+  event.preventDefault();
+  if (session_user_id == null) {
+    $('#modal-popup .modal-body p').text("Please log in!");
+    $('#modal-popup').modal('show');
+  } else {
+    window.location.href = 'comment.html';
+  }
+ });
 
 });

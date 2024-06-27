@@ -21,9 +21,15 @@ $(document).ready(function() {
                 window.location.href = 'index.html';
             },
             error: function(xhr, status, error) {
+                
                 // Handle error response
-                let errorMessage = xhr.responseText || 'An error occurred during login.';
-                $('#error-message').text(errorMessage).show();
+                if (xhr.status === 401) {
+                    $('#modal-popup .modal-body p').text("Password or email are incorrect");
+                    $('#modal-popup').modal('show');
+                } else {
+                    let errorMessage = xhr.responseText || 'An error occurred during login.';
+                    $('#error-message').text(errorMessage).show();
+                }
             }
         });
     });
