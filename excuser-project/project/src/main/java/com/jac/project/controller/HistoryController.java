@@ -24,6 +24,11 @@ public class HistoryController {
         return service.getAllHistory();
     }
 
+    @GetMapping("/id/{history_id}")
+    public History getHistoryById(@PathVariable Long history_id){
+        return service.getHistoryById(history_id);
+    }
+
     @PostMapping("/save")
     public ResponseEntity<Long> saveHistory(@RequestParam Long session_user_id, @RequestParam Long excuse_id, @RequestParam String excuse_content, @RequestParam String category_name ){
         try{
