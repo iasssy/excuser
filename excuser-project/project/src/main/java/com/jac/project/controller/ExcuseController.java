@@ -19,7 +19,7 @@ public class ExcuseController {
     ExcuseService excuseService;
 
     /*
-    Get a random excuse
+    Get a random excuse     
     https://excuser-three.vercel.app/v1/excuse
      */
     @GetMapping("/")
