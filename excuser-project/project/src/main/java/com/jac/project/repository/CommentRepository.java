@@ -26,6 +26,12 @@ public class CommentRepository {
         return result;
     }
 
+    public Comment getCommentById(Long comment_id) {
+        String sql = "SELECT * FROM comment_tbl WHERE comment_id=?";
+        Comment result = jdbcTemplate.queryForObject(sql, new CommentRowMapper(), comment_id);
+        return result;
+    }
+
     public Long saveComment(Comment comment){
         String sql = "INSERT INTO comment_tbl  (user_id, history_id, comment_content) VALUES  (?, ?, ?)";
         jdbcTemplate.update(sql, session_user_id, comment.getHistory_id(), comment.getComment_content());
@@ -34,4 +40,9 @@ public class CommentRepository {
         return jdbcTemplate.queryForObject("SELECT MAX(comment_id) from comment_tbl", Long.class);
     }
 
+
+   public void deleteCommentById(Long comment_id){
+        String sql="DELETE FROM comment_tbl WHERE comment_id=?";
+        jdbcTemplate.update(sql, comment_id);
+   }
 }

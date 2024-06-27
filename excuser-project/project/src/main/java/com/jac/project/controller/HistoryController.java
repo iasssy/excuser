@@ -1,6 +1,7 @@
 package com.jac.project.controller;
 
 
+import com.jac.project.model.Comment;
 import com.jac.project.model.History;
 import com.jac.project.service.ExcuseService;
 import com.jac.project.service.HistoryService;
@@ -20,13 +21,18 @@ public class HistoryController {
     HistoryService service;
 
     @GetMapping("/")
-    public List<History> getAllCategories(){
-        return service.getAllHistory();
+    public ResponseEntity<List<History>> getAllHistory(){
+        return new ResponseEntity<>(service.getAllHistory(), HttpStatus.OK);
     }
 
     @GetMapping("/id/{history_id}")
-    public History getHistoryById(@PathVariable Long history_id){
-        return service.getHistoryById(history_id);
+    public ResponseEntity<History> getHistoryById(@PathVariable Long history_id){
+        try{
+            return new ResponseEntity<>(service.getHistoryById(history_id), HttpStatus.OK);
+        }
+        catch (Exception exception){
+            return new ResponseEntity(exception.getMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
 
     @PostMapping("/save")

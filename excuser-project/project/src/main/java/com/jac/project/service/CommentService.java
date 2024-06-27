@@ -20,4 +20,14 @@ public class CommentService {
     public Long saveComment(Comment comment){
         return repository.saveComment(comment);
     }
+
+    public Comment getCommentById(Long commentId) {
+        return repository.getCommentById(commentId);
+    }
+
+    public void deleteCommentById(Long comment_id){
+        repository.deleteCommentById(comment_id);
+    }
+
+
 }

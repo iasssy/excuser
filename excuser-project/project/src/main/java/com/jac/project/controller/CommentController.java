@@ -19,8 +19,18 @@ public class CommentController {
     CommentService service;
 
     @GetMapping("/")
-    public List<Comment> getAllComments(){
-        return service.getAllComments();
+    public ResponseEntity<List<Comment>> getAllComments(){
+        return  new ResponseEntity<>(service.getAllComments(), HttpStatus.OK);
+    }
+
+    @GetMapping("/id/{comment_id}")
+    public ResponseEntity<Comment> getCommentById(@PathVariable Long comment_id){
+        try{
+            return new ResponseEntity<>(service.getCommentById(comment_id), HttpStatus.OK);
+        }
+        catch (Exception exception){
+            return new ResponseEntity(exception.getMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
 
     @PostMapping("/save/")
@@ -28,6 +38,17 @@ public class CommentController {
         try{
             return new ResponseEntity(service.saveComment(comment), HttpStatus.CREATED);
         } catch (Exception exception){
+            return new ResponseEntity(exception.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @DeleteMapping("/delete/{comment_id}")
+    public ResponseEntity<Void> deleteCommentById(@PathVariable Long comment_id){
+        try{
+            service.deleteCommentById(comment_id);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        catch (Exception exception) {
             return new ResponseEntity(exception.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
