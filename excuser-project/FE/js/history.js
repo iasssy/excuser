@@ -12,7 +12,7 @@ function loadHistory() {
             response.forEach(item => {
                 let listItem = `<li class="list-group-item text-start">
                                     <div class="row">
-                                        <div class="col-sm-2 col-12">
+                                        <div class="col-sm-2 col-12 d-flex align-items-center">
                                             <h5><span class="badge text-bg-warning rounded-pill">${item.category_name}</span></h5>
                                         </div>
                                         <div class="col-sm-7 col-12">
@@ -38,7 +38,7 @@ function loadHistory() {
               // extract everything after "history-"
               let historyId = historyIdAttr.substring(historyIdAttr.indexOf('-') + 1);               
               deleteHistory(historyId);
-          });
+            });
 
           $('.add-comment').on('click', function() {
               let historyIdAttrComment = $(this).attr('id');
@@ -67,12 +67,15 @@ function loadHistory() {
                     contentType: 'application/json',
                     data: JSON.stringify(commentData),
                     success: function(response) {
-                        alert('Comment added successfully.');
+                        //alert('Comment added successfully.');                        
+                        $('#modal-add-comment .modal-body p').text("Saved successfully. Please close the window.");
                         $('#comment-content').val('');
-                        $('#modal-add-comment').modal('hide');
+                        //$('#modal-add-comment').modal('hide');
                     },
                     error: function(xhr, status, error) {
-                        console.log('Error adding comment: ' + xhr.responseText);
+                        //console.log('Error adding comment: ' + xhr.responseText);
+                        $('#modal-popup .modal-body p').text("Error saving comment");
+                        $('#modal-popup').modal('show');
                     }
                 });
             });
@@ -107,42 +110,9 @@ function deleteHistory(historyId) {
           alert('Error deleting history: ' + xhr.responseText);
       }
   });
-  }
-
-    
-    /*
-function createUser() {
-    const name = document.getElementById("user-name").value;
-    const password = document.getElementById("user-password").value;
-    const email = document.getElementById("user-email").value;
-    const age = document.getElementById("user-age").value;
-  
-    $.ajax({
-      method: "post",
-      url: `${HOST}/user/`,
-      data: JSON.stringify({
-        'name': name,
-        'age': age,
-        'email': email,
-        'password': password,
-      }),
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    }).done((response) => {
-      alert("user created " + response);
-    });
-  }
-
-  */
-
-
-  
+  } 
 
 
   loadHistory();
-
-
 
 });
