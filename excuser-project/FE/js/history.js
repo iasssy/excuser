@@ -86,8 +86,7 @@ function loadHistory() {
           });
         },
         error: function(xhr, status, error) {
-            //alert('Error loading history: ' + xhr.responseText);
-            
+            //alert('Error loading history: ' + xhr.responseText);            
         }
     });    
 }
