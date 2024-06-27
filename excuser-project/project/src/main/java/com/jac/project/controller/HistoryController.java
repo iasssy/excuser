@@ -3,6 +3,7 @@ package com.jac.project.controller;
 
 import com.jac.project.model.Comment;
 import com.jac.project.model.History;
+import com.jac.project.model.SessionData;
 import com.jac.project.service.ExcuseService;
 import com.jac.project.service.HistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ public class HistoryController {
 
     @Autowired
     HistoryService service;
+
 
     @GetMapping("/")
     public ResponseEntity<List<History>> getAllHistory(){

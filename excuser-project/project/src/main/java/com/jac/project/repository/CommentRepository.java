@@ -21,7 +21,7 @@ public class CommentRepository {
     final Long session_user_id = 1L;
 
     public List<Comment> getAllComments() {
-        String sql = "SELECT * FROM comment_tbl WHERE user_id=? ORDER BY saved_at DESC";
+        String sql = "SELECT * FROM comment_tbl WHERE user_id=? ORDER BY comment_id DESC";
         List<Comment> result = jdbcTemplate.query(sql, new CommentRowMapper(), session_user_id);
         return result;
     }
@@ -45,4 +45,10 @@ public class CommentRepository {
         String sql="DELETE FROM comment_tbl WHERE comment_id=?";
         jdbcTemplate.update(sql, comment_id);
    }
+
+
+    public void updateComment(Long comment_id, String comment_content) {
+        String sql = "UPDATE comment_tbl SET comment_content=? WHERE comment_id=?";
+        jdbcTemplate.update(sql, comment_content, comment_id);
+    }
 }
