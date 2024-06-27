@@ -52,7 +52,6 @@ body {
     margin-bottom: 1em;
 }
 
-
 .main-container {
     width: 400px;
     text-align: center;
@@ -129,6 +128,9 @@ body {
 }
 #button-group{
     padding-bottom: 50px;
+}
+#button-group a{
+    margin: 5px;
 }
 #developers {
     position: absolute;

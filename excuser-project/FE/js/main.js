@@ -3,9 +3,12 @@ const HOST = "http://localhost:8080";
 let excuse_id;
 let excuse_content;
 let category_name;
-const session_user_id = 1; 
+let session_user_id = sessionStorage.getItem('session_user_id');
 
+console.log("session_user_id: " + session_user_id);
 $(document).ready(function() {
+    updateLoginState(); // checking if there is session_user_id
+
     $('#generate-excuse').on('click', function(event) {
         event.preventDefault();
         let category = $('#excuse-select').val();
@@ -47,6 +50,10 @@ $(document).ready(function() {
           $('#modal-popup').modal('show');
           return;
       }
+      if (session_user_id == null){
+          $('#modal-popup .modal-body p').text("Please log in!");
+          $('#modal-popup').modal('show');
+      } else {
       $.ajax({
           method: 'post',
           url: `${HOST}/history/save`,
@@ -65,6 +72,38 @@ $(document).ready(function() {
               alert('Error saving excuse: ' + xhr.responseText);
           }
       });
+    }
   });
+
+   // Function to update button "Log in" or "Quit" based on session_user_id
+   function updateLoginState() {
+    session_user_id = sessionStorage.getItem('session_user_id');
+    let buttonGroup = $('#button-group');
+    buttonGroup.empty(); // Clear existing buttons
+     // Always append other buttons
+     buttonGroup.append(`
+        <a id="btn-save" type="button" class="btn btn-primary">SAVE</a>
+        <a href="history.html" class="btn btn-primary">HISTORY</a>
+        <a href="comment.html" class="btn btn-primary">COMMENTS</a>`
+      );
+
+    if (session_user_id == null) {
+        // Append Log in button
+        buttonGroup.append(`<a id="btn-login" href="log-in.html" class="btn btn-primary">LOG IN</a>`);
+    } else {
+        // Append Quit button
+        buttonGroup.append(`<a id="btn-quit" href="#" class="btn btn-primary">QUIT</a>`);
+
+        // Handle quit button click
+        $('#btn-quit').on('click', function(event) {
+            event.preventDefault();
+            // Clear session_user_id
+            sessionStorage.removeItem('session_user_id');
+            updateLoginState(); // Update UI
+            window.location.href = 'index.html'; // Redirect to index or desired page
+        });
+    }
+}
+
 
 });
