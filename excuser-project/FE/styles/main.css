@@ -126,7 +126,7 @@ body {
     display: block;
     margin: auto;
 }
-#button-group{
+#button-group, #button-group-history, #button-group-comments{
     padding-bottom: 50px;
 }
 #button-group a{
