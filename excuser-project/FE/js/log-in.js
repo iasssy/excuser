@@ -2,10 +2,21 @@
 $(document).ready(function() {
     $('#log-in-form').submit(function(event) {
         event.preventDefault(); // Prevent the default form submission
+        
+       
+        let user_email = $('#email-input').val();
+        let user_password = $('#password-input').val();
+
+        // Validate email format
+        if (!validateEmail(user_email)) {
+            $('#modal-popup .modal-body p').text("Invalid email format.");
+            $('#modal-popup').modal('show');
+            return;
+        }
 
         let loginData = {
-            user_email: $('#email-input').val(),
-            user_password: $('#password-input').val()
+            user_email: user_email,
+            user_password: user_password
         };
 
         $.ajax({
@@ -33,4 +44,11 @@ $(document).ready(function() {
             }
         });
     });
+
+    
+    // Function to validate email format
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
 });

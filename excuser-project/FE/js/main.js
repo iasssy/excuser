@@ -44,16 +44,17 @@ $(document).ready(function() {
 
 
     $('#btn-save').on('click', function() {
-      if (!excuse_id) {
-          //alert('Please generate an excuse first!');
-          $('#modal-popup .modal-body p').text("Please generate an excuse at first!");
-          $('#modal-popup').modal('show');
-          return;
-      }
       if (session_user_id == null){
           $('#modal-popup .modal-body p').text("Please log in!");
           $('#modal-popup').modal('show');
+        
       } else {
+        if (!excuse_id) {
+            //alert('Please generate an excuse first!');
+            $('#modal-popup .modal-body p').text("Please generate an excuse at first!");
+            $('#modal-popup').modal('show');
+            return;
+        }
       $.ajax({
           method: 'post',
           url: `${HOST}/history/save`,
@@ -82,9 +83,9 @@ $(document).ready(function() {
     buttonGroup.empty(); // Clear existing buttons
      //  append other buttons
      buttonGroup.append(`
-        <a id="btn-save" class="btn btn-primary">SAVE</a>
-        <a id="btn-history" class="btn btn-primary">HISTORY</a>
-        <a id="btn-comments" class="btn btn-primary">COMMENTS</a>`
+        <a id="btn-save" href="#" class="btn btn-primary">SAVE</a>
+        <a id="btn-history" href="#" class="btn btn-primary">HISTORY</a>
+        <a id="btn-comments" href="#" class="btn btn-primary">COMMENTS</a>`
       );
 
     if (session_user_id == null) {
