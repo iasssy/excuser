@@ -27,8 +27,9 @@ public class ExcuseController {
         try{
             return new ResponseEntity<>(excuseService.getRandomExcuse(), HttpStatus.OK);
         } catch (Exception exception) {
-            throw new ExcuseServiceException("Excuses are NOT FOUND");
+            //throw new ExcuseServiceException("Excuses are NOT FOUND");
             // TODO to check this exception
+            return new ResponseEntity(new ExcuseServiceException("Excuses are NOT FOUND"), HttpStatus.BAD_REQUEST);
         }
     }
 
