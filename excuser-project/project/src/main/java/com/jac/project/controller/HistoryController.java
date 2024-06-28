@@ -1,12 +1,8 @@
 package com.jac.project.controller;
 
 
-import com.jac.project.model.Comment;
 import com.jac.project.model.History;
-import com.jac.project.model.SessionData;
-import com.jac.project.service.ExcuseService;
 import com.jac.project.service.HistoryService;
-import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

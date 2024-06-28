@@ -1,6 +1,5 @@
 package com.jac.project.controller;
 
-import com.jac.project.model.SessionData;
 import com.jac.project.model.User;
 import com.jac.project.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +14,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private SessionData sessionData;
 
     @PostMapping("/save")
     public ResponseEntity<Long> saveUser(@RequestBody User user){
@@ -40,22 +37,6 @@ public class UserController {
             }
         } catch (Exception exception) {
             return new ResponseEntity(exception.getMessage(), HttpStatus.BAD_REQUEST);
-        }
-    }
-
-    @GetMapping("/current")
-    public Long getCurrentUserId() {
-        Long userId = sessionData.getSessionUserId();
-        return userId != null ? userId : null; // Return null if session userId is null
-    }
-
-    @GetMapping("/logout")
-    public ResponseEntity<String> logoutUser() {
-        try {
-            sessionData.setSessionUserId(null); // clear session user ID
-            return ResponseEntity.ok("null");
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage()); // Return error message with 500 status
         }
     }
 
