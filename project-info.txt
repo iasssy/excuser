@@ -1,8 +1,8 @@
-Project Name: Excuses
+Project Name: GET EXCUSE
 
 Overview:
 The Excuser - application is a Java-based project. I has front end and back end, enabling user to generate and save excuses for various situations. The source of generated excuses is external API.
-The database keeps track of histiry of excuses for each user.
+The database keeps track of history of excuses for each user.
 Whether users need an excuse for being late, missing a meeting, or simply want a humorous way to get out of a situation, the Excuses API offers a diverse collection of excuses.
 
 
@@ -17,40 +17,23 @@ Party: I went too hard at my friend's party last night. Too tired right now. I'm
 Features:
 
 Random Excuse Generation:
-  Provides a random excuse for users without any specific input.
+  Provides a random excuse for users with/without choosing of categories provided. API of excuses: 
+ https://excuser-three.vercel.app/v1/excuse
+ 
+GIF generation: 
+  Generation of image from another API representing either "yes" or "no".
+https://yesno.wtf/
+
 Excuse Categories:
   Generates excuses based on predefined categories such as work, personal, or general excuses.
-!!! Something about the database 
+Database usage: 
+  Saves in the history the history of excuses. There is a possibility to add comments to the excuses saved. The information is showed only for the logged in user.
+
+Future development:
+  The dashboard should be created for the user, where he can see history and comments, update profile. And the additional page to see the history and comments of other users. 
 
 Specifications:
     Language: Java
     Framework: Spring Boot
     Database: MySQL, for storing comments on specific excuses (if they tried this excuse and how it worked for them)
     External API: Retrieving excuses.
-
-Usage of external API:
-  Get a random excuse
-  https://excuser-three.vercel.app/v1/excuse
-  
-  Get a specific excuse having specific id
-  https://excuser-three.vercel.app/v1/excuse/id/101
-  
-  Get n random excuses
-  https://excuser-three.vercel.app/v1/excuse/3
-  
-  Get a random excuse for a specific category
-  https://excuser-three.vercel.app/v1/excuse/office
-  
-  Get n random excuses for a specific category
-  https://excuser-three.vercel.app/v1/excuse/college/4
-
-API Categories available:
-  Family (id range 1-10)
-  Office (id range 101-110)
-  Children (id range 201-210)
-  College (id range 301-310)
-  Party (id range 401-410)
-  Funny (id range 501-516)
-  Unbelievable (id range 601-613)
-  Developers (id range 701-715)
-  Gaming (id range 801-820)
