@@ -18,10 +18,10 @@ function loadHistory() {
             response.forEach(item => {
                 let listItem = `<li class="list-group-item text-start">
                                     <div class="row">
-                                        <div class="col-sm-12 col-12 col-md-12 lg-2 col-d-flex align-items-center">
+                                        <div class="col-sm-12 col-12 col-md-2 lg-1 p-0 d-flex align-items-center">
                                             <h5><span class="badge text-bg-warning rounded-pill">${item.category_name}</span></h5>
                                         </div>
-                                        <div class="col-sm-12 col-12 col-md-8 lg-7">
+                                        <div class="col-sm-12 col-12 col-md-6 lg-8">
                                             ${item.excuse_content}
                                         </div>
                                         <div class="col-sm-6 col-12 col-md-2 lg-2 text-center mt-2">

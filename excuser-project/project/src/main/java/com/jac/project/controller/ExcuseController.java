@@ -23,9 +23,9 @@ public class ExcuseController {
     https://excuser-three.vercel.app/v1/excuse
      */
     @GetMapping("/")
-    public Excuse getRandomExcuse(){
+    public ResponseEntity<Excuse> getRandomExcuse(){
         try{
-            return excuseService.getRandomExcuse();
+            return new ResponseEntity<>(excuseService.getRandomExcuse(), HttpStatus.OK);
         } catch (Exception exception) {
             throw new ExcuseServiceException("Excuses are NOT FOUND");
             // TODO to check this exception
