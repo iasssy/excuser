@@ -15,8 +15,8 @@ public class HistoryService {
     @Autowired
     HistoryRepository repository;
 
-    public List<History> getAllHistory(){
-        return repository.getAllHistory();
+    public List<History> getAllHistory(Long session_user_id){
+        return repository.getAllHistory(session_user_id);
     }
     public History getHistoryById(Long history_id){
         return repository.getHistoryById(history_id);

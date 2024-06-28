@@ -18,28 +18,28 @@ $(document).ready(function() {
               url: `${HOST}/history/id/` + commentResponse.history_id,
               success: function(historyResponse) {
                 let listItem = `<li class="list-group-item text-start">
-                  <div class="row">
-                    <div class="col-sm-2 col-12 d-flex align-items-center">
-                      <h5><span class="badge text-bg-warning rounded-pill">${historyResponse.category_name}</span></h5>
-                    </div>
-                    <div class="col-sm-8 col-12">
-                      <h6>Excuse:</h6>
-                      <small>${historyResponse.excuse_content}</small>
-                      <h5 class="mt-3">Comment:</h5>
-                      <div class="comment-background p-2">${commentResponse.comment_content}</div>
-                    </div>
-                    <div class="col-sm-1 col-6 text-center mt-2">
-                      <div class="update-icon" id="update-${commentResponse.comment_id}">
-                        <i class="bi bi-pencil-fill"></i>
-                      </div>
-                    </div>
-                    <div class="col-sm-1 col-6 text-center mt-2">
-                      <div class="delete-icon" id="delete-${commentResponse.comment_id}">
-                        <i class="bi bi-trash3-fill"></i>
-                      </div>
-                    </div>
-                  </div>
-                </li>`;
+                                  <div class="row">
+                                    <div class="col-sm-12 col-12 col-md-3 lg-1 d-flex align-items-center">
+                                      <h5><span class="badge text-bg-warning rounded-pill">${historyResponse.category_name}</span></h5>
+                                    </div>
+                                    <div class="col-sm-12 col-12 col-md-7 lg-8">
+                                      <h6>Excuse:</h6>
+                                      <small>${historyResponse.excuse_content}</small>
+                                      <h5 class="mt-3">Comment:</h5>
+                                      <div class="comment-background p-2">${commentResponse.comment_content}</div>
+                                    </div>
+                                    <div class="col-sm-6 col-12 col-md-1 lg-1 text-center mt-2 d-flex align-items-center">
+                                      <div class="update-icon" id="update-${commentResponse.comment_id}">
+                                        <i class="bi bi-pencil-fill"></i>
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-6 col-12 col-md-1 lg-1  text-center mt-2 d-flex align-items-center">
+                                      <div class="delete-icon" id="delete-${commentResponse.comment_id}">
+                                        <i class="bi bi-trash3-fill"></i>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </li>`;
                 commentsList.append(listItem);
               },
               error: function(xhr, status, error) {

@@ -176,6 +176,9 @@ body {
     color: #ff8c00;
     font-weight: 700;
 }
+#modal-popup > div > div > div.modal-body > p {
+    font-size: 22px;
+}
 .comment-background{
     background-color: #f9dfb1;
     font-size: 18px;

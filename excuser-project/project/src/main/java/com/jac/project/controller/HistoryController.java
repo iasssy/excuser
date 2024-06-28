@@ -6,6 +6,7 @@ import com.jac.project.model.History;
 import com.jac.project.model.SessionData;
 import com.jac.project.service.ExcuseService;
 import com.jac.project.service.HistoryService;
+import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,10 +22,12 @@ public class HistoryController {
     @Autowired
     HistoryService service;
 
-
     @GetMapping("/")
-    public ResponseEntity<List<History>> getAllHistory(){
-        return new ResponseEntity<>(service.getAllHistory(), HttpStatus.OK);
+    public ResponseEntity<List<History>> getAllHistory(@RequestParam Long session_user_id){
+        //System.out.println("Received session_user_id: " + session_user_id);
+        List<History> historyList = service.getAllHistory(session_user_id);
+        //System.out.println("Returning history items: " + historyList.size());
+        return new ResponseEntity<>(historyList, HttpStatus.OK);
     }
 
     @GetMapping("/id/{history_id}")
