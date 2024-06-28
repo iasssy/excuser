@@ -1,0 +1,39 @@
+Project Name: GET EXCUSE
+
+Overview:
+The Excuser - application is a Java-based project. I has front end and back end, enabling user to generate and save excuses for various situations. The source of generated excuses is external API.
+The database keeps track of history of excuses for each user.
+Whether users need an excuse for being late, missing a meeting, or simply want a humorous way to get out of a situation, the Excuses API offers a diverse collection of excuses.
+
+
+Examples of excuses:
+Family: My best friend got in an accident and I had to take his place.
+Office: My parents showed up unannounced at my house.
+Children: My temperature is really high today.
+College: As my parents were not home so I went to drop off my little brother at school.
+Party: I went too hard at my friend's party last night. Too tired right now. I'm going to have to sit this one out.
+
+
+Features:
+
+Random Excuse Generation:
+  Provides a random excuse for users with/without choosing of categories provided. API of excuses: 
+ https://excuser-three.vercel.app/v1/excuse
+ 
+GIF generation: 
+  Generation of image from another API representing either "yes" or "no".
+https://yesno.wtf/
+
+Excuse Categories:
+  Generates excuses based on predefined categories such as work, personal, or general excuses.
+Database usage: 
+  Saves in the history the history of excuses. There is a possibility to add comments to the excuses saved. The information is showed only for the logged in user.
+
+Future development:
+  The dashboard should be created for the user, where he can see history and comments, update profile. And the additional page to see the history and comments of other users. 
+
+Specifications:
+    Language: Java
+    Framework: Spring Boot
+    Database: MySQL, for storing comments on specific excuses (if they tried this excuse and how it worked for them)
+    External API: Retrieving excuses.
