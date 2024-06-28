@@ -18,9 +18,9 @@ public class CommentRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    final Long session_user_id = 1L;
+    //final Long session_user_id = 1L;
 
-    public List<Comment> getAllComments() {
+    public List<Comment> getAllComments(Long session_user_id) {
         String sql = "SELECT * FROM comment_tbl WHERE user_id=? ORDER BY comment_id DESC";
         List<Comment> result = jdbcTemplate.query(sql, new CommentRowMapper(), session_user_id);
         return result;
@@ -32,7 +32,7 @@ public class CommentRepository {
         return result;
     }
 
-    public Long saveComment(Comment comment){
+    public Long saveComment(Comment comment, Long session_user_id){
         String sql = "INSERT INTO comment_tbl  (user_id, history_id, comment_content) VALUES  (?, ?, ?)";
         jdbcTemplate.update(sql, session_user_id, comment.getHistory_id(), comment.getComment_content());
 

@@ -18,8 +18,8 @@ public class CommentController {
     CommentService service;
 
     @GetMapping("/")
-    public ResponseEntity<List<Comment>> getAllComments(){
-        return  new ResponseEntity<>(service.getAllComments(), HttpStatus.OK);
+    public ResponseEntity<List<Comment>> getAllComments(@RequestParam Long session_user_id){
+        return  new ResponseEntity<>(service.getAllComments(session_user_id), HttpStatus.OK);
     }
 
     @GetMapping("/id/{comment_id}")
@@ -33,9 +33,9 @@ public class CommentController {
     }
 
     @PostMapping("/save/")
-    public ResponseEntity<Long> saveComment(@RequestBody Comment comment){
+    public ResponseEntity<Long> saveComment(@RequestBody Comment comment, @RequestHeader("session_user_id") Long session_user_id){
         try{
-            return new ResponseEntity(service.saveComment(comment), HttpStatus.CREATED);
+            return new ResponseEntity(service.saveComment(comment, session_user_id), HttpStatus.CREATED);
         } catch (Exception exception){
             return new ResponseEntity(exception.getMessage(), HttpStatus.BAD_REQUEST);
         }
