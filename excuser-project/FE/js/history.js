@@ -3,6 +3,7 @@ let historyList = $('#history-list');
 
 $(document).ready(function() {
 function loadHistory() {
+    //alert(session_user_id);
      if (session_user_id == null) {
         historyList.append('<h3 class="mt-5">Please log in</h3>');
      } else {
@@ -10,29 +11,29 @@ function loadHistory() {
         method: 'get',
         url: `${HOST}/history/`,
         data: {
-            user_id: session_user_id
+            session_user_id: session_user_id
         },
         success: function(response) {
             historyList.empty();
             response.forEach(item => {
                 let listItem = `<li class="list-group-item text-start">
                                     <div class="row">
-                                        <div class="col-sm-2 col-12 d-flex align-items-center">
+                                        <div class="col-sm-12 col-12 col-md-12 lg-2 col-d-flex align-items-center">
                                             <h5><span class="badge text-bg-warning rounded-pill">${item.category_name}</span></h5>
                                         </div>
-                                        <div class="col-sm-7 col-12">
+                                        <div class="col-sm-12 col-12 col-md-8 lg-7">
                                             ${item.excuse_content}
                                         </div>
-                                        <div class="col-sm-2 col-12 text-center mt-2">
+                                        <div class="col-sm-6 col-12 col-md-2 lg-2 text-center mt-2">
                                             <a type="button" class="add-comment btn btn-info btn-sm rounded" id="new-${item.history_id}">Add comment</a>
                                         </div>
-                                        <div class="col-sm-1 col-12 text-center mt-2">
+                                        <div class="col-sm-6 col-12 col-md-2 lg-1 text-center mt-2">
                                             <div class="delete-icon" id="delete-${item.history_id}">
                                                 <i class="bi bi-trash3-fill"></i>
                                             </div>
                                         </div>
                                     </div>
-                                    </li>`;                            
+                                    </li>`;                        
                 historyList.append(listItem);
             });
 
@@ -113,7 +114,7 @@ function deleteHistory(historyId) {
           loadHistory();
       },
       error: function(xhr, status, error) {
-          alert('Error deleting history: ' + xhr.responseText);
+          //alert('Error deleting history: ' + xhr.responseText);
       }
   });
   } 
