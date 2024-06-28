@@ -82,6 +82,9 @@ function loadHistory() {
                         //console.log('Error adding comment: ' + xhr.responseText);
                         $('#modal-popup .modal-body p').text("Error saving comment");
                         $('#modal-popup').modal('show');
+                    },
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('session_user_id', session_user_id);
                     }
                 });
             });

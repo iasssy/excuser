@@ -14,11 +14,11 @@ public class CommentService {
     @Autowired
     CommentRepository repository;
 
-    public List<Comment> getAllComments(){
-        return repository.getAllComments();
+    public List<Comment> getAllComments(Long session_user_id){
+        return repository.getAllComments(session_user_id);
     }
-    public Long saveComment(Comment comment){
-        return repository.saveComment(comment);
+    public Long saveComment(Comment comment, Long session_user_id){
+        return repository.saveComment(comment, session_user_id);
     }
 
     public Comment getCommentById(Long commentId) {

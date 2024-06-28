@@ -9,6 +9,9 @@ $(document).ready(function() {
       $.ajax({
         method: 'get',
         url: `${HOST}/comments/`,
+        data: {
+            session_user_id: session_user_id
+        },
         success: function(response) {
           commentsList.empty();
   
@@ -55,6 +58,9 @@ $(document).ready(function() {
           console.log('Error loading comments: ' + xhr.responseText);
           $('#modal-popup .modal-body p').text("Error loading comments");
           $('#modal-popup').modal('show');
+        },
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader('session_user_id', session_user_id);
         }
       });
     }
